@@ -238,18 +238,13 @@ a:hover {
     line-height: 1.75rem;
 }
 
-.txt_block_sec_1 {
-    margin-top: 145px;
-}
-
-.img_block_sec_1 {
-    padding: 0;
+.section_1 {
+    margin-top: 150px;
 }
 
 .button-started {
     margin-top: 29px;
 }
-
 
 .button_video {
     background-color: Transparent;
@@ -262,6 +257,16 @@ a:hover {
     color: #02897A;
     font-weight: 600;
     text-decoration: underline;
+}
+
+@media screen and (max-width: 992px) {
+    .section_1 {
+        margin-top: 30px;
+    }
+
+    .img_block_sec_1 {
+        padding-top: 30px;
+    }
 }
 
 /*----------------------------section_2-------------------------------------*/
@@ -281,7 +286,6 @@ a:hover {
 .section_2 h4 {
     margin-bottom: 0;
 }
-
 
 .section_2_img {
     width: 50px;
@@ -327,6 +331,10 @@ a:hover {
 }
 
 @media screen and (max-width: 992px) {
+    .section_2 {
+        margin-top: 30px;
+    }
+
     .section_2_img {
         display: block;
         margin: 30px auto 30px auto;
@@ -367,6 +375,12 @@ a:hover {
 @media screen and (min-width: 1295px) {
     .section_3 img {
         margin-left: 84px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .section_3 {
+        margin-top: 30px;
     }
 }
 
@@ -419,6 +433,10 @@ a:hover {
     .section_4 p[class^=section_4_mark_]::before {
         margin-top: 0;
     }
+
+    .section_4 {
+        margin-top: 30px;
+    }
 }
 
 /*----------------------------section_5-------------------------------------*/
@@ -452,6 +470,12 @@ a:hover {
 @media screen and (min-width: 1295px) {
     .section_5 img {
         margin-left: 84px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .section_5 {
+        margin-top: 30px;
     }
 }
 
@@ -503,6 +527,10 @@ a:hover {
 @media screen and (max-width: 991px) {
     .combined_shape_1, .combined_shape_2 {
         margin-left: 16px;
+    }
+
+    .section_6 {
+        margin-top: 30px;
     }
 }
 
@@ -583,6 +611,12 @@ a:hover {
 
 .main-carousel .dot.is-selected {
     background-color: #02897A;
+}
+
+@media screen and (max-width: 991px) {
+    .section_7 {
+        margin-top: 30px;
+    }
 }
 
 /*----------------------------section_8-------------------------------------*/
@@ -795,6 +829,12 @@ div:nth-child(2) .price_box .price, .dollar {
     height: 50px;
 }
 
+@media screen and (max-width: 991px) {
+    .section_9 {
+        margin-top: 30px;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .section_9 .list-wrap {
         margin-bottom: 15px;
@@ -855,7 +895,7 @@ div:nth-child(2) .price_box .price, .dollar {
 
 @media screen and (max-width: 991px) {
     .section_10 {
-        margin-top: 50px;
+        margin-top: 30px;
     }
 
     .section_10 .join_block {
@@ -894,6 +934,12 @@ footer .social_block {
 @media screen and (min-width: 992px) {
     .social_block img:not(:last-child) {
         margin-right: 16px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    footer {
+        margin-top: 30px;
     }
 }
 
