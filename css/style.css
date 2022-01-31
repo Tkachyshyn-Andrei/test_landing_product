@@ -239,18 +239,21 @@ a:hover {
 }
 
 .section_1 {
-    margin-top: 150px;
+    margin-top: 25px;
+}
+
+.txt_block_sec_1 {
+    margin-top: 120px;
 }
 
 .button-started {
-    margin-top: 29px;
+    margin-top: 30px;
 }
 
 .button_video {
     background-color: Transparent;
     border: none;
     cursor: pointer;
-    margin-left: 30px;
 }
 
 .bg-href {
@@ -259,8 +262,8 @@ a:hover {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 992px) {
-    .section_1 {
+@media screen and (max-width: 991px) {
+    .txt_block_sec_1 {
         margin-top: 30px;
     }
 
@@ -303,7 +306,7 @@ a:hover {
     padding-left: 40px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 767px) {
     .section_2 .row {
         margin-right: -15px;
         margin-left: -15px;
@@ -330,7 +333,7 @@ a:hover {
     }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
     .section_2 {
         margin-top: 30px;
     }
@@ -364,21 +367,11 @@ a:hover {
     margin-bottom: 30px;
 }
 
-.section_3 img {
-    margin-left: 0;
-}
-
 .txt_block {
     padding-top: 19px;
 }
 
-@media screen and (min-width: 1295px) {
-    .section_3 img {
-        margin-left: 84px;
-    }
-}
-
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
     .section_3 {
         margin-top: 30px;
     }
@@ -410,7 +403,6 @@ a:hover {
     float: left;
     transition: transform 0.4s ease-in-out;
 }
-
 
 .section_4 p[class^=section_4_mark_]:hover::before {
     transform: scale(1.25, 1.25);
@@ -459,18 +451,8 @@ a:hover {
     margin-bottom: 30px;
 }
 
-.section_5 img {
-    margin-left: 0;
-}
-
 .txt_block {
     padding-top: 19px;
-}
-
-@media screen and (min-width: 1295px) {
-    .section_5 img {
-        margin-left: 84px;
-    }
 }
 
 @media screen and (max-width: 991px) {
@@ -757,7 +739,7 @@ div:nth-last-child(2) .dollar{
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .section_8 .price_box {
         padding: 0 86px;
     }
@@ -978,13 +960,3 @@ footer input {
         width: 75%;
     }
 }
-
-footer .nav-link {
-
-}
-
-
-
-
-
-
