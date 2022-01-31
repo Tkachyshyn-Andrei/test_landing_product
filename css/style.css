@@ -658,25 +658,12 @@ a:hover {
     margin-bottom: 16px;
 }
 
-div:nth-child(2) .card_price {
-    background: #02897A;
-    color: #FFFFFF;
-}
-
-div:nth-child(2) .card_price .price_link {
-    color: #FFFFFF;
-}
-
-div:nth-child(2) .price_box .price, .dollar {
-    color: #FFFFFF;
-}
-
-.section_8 .card_price:first-child {
-    margin-left: 15px;
-}
-
-.section_8 .row div:nth-child(2) {
-    margin: 0 10px;
+.dollar {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    font-weight: 700;
+    position: absolute;
+    top: 20px;
 }
 
 .card_price h4 {
@@ -708,14 +695,6 @@ div:nth-child(2) .price_box .price, .dollar {
     margin-right: 6px;
 }
 
-.dollar {
-    font-size: 1.5rem;
-    line-height: 1.875rem;
-    font-weight: 700;
-    position: absolute;
-    top: 20px;
-}
-
 .per_month {
     line-height: 1.188rem;
     font-weight: 400;
@@ -739,6 +718,30 @@ div:nth-child(2) .price_box .price, .dollar {
     color: #02897A;
 }
 
+div:nth-child(2) .card_price {
+    background: #02897A;
+    color: #FFFFFF;
+}
+
+div:nth-child(2) .card_price .price_link {
+    color: #FFFFFF;
+}
+
+div:nth-child(2) .price_box .price {
+    color: #FFFFFF;
+}
+
+div:nth-last-child(2) .dollar{
+    color: #FFFFFF;
+}
+
+.section_8 .card_price:first-child {
+    margin-left: 15px;
+}
+
+.section_8 .row div:nth-child(2) {
+    margin: 0 10px;
+}
 
 @media screen and (max-width: 991px) {
     .section_8 .card_price:first-child {
