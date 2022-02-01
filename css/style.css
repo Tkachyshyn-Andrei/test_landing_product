@@ -180,15 +180,15 @@ a:hover {
     background: #02BC6B;
 }
 
-.navbar-toggler-icon:hover:before {
+.navbar-toggler-icon.open-menu:before {
     transform: translateY(12px) rotate(135deg);
 }
 
-.navbar-toggler-icon:hover:after {
+.navbar-toggler-icon.open-menu:after {
     transform: translateY(-12px) rotate(-135deg);
 }
 
-.navbar-toggler-icon:hover div {
+.navbar-toggler-icon.open-menu div {
     transform: scale(0);
 }
 
@@ -719,7 +719,7 @@ div:nth-child(2) .price_box .price {
     color: #FFFFFF;
 }
 
-div:nth-last-child(2) .dollar{
+div:nth-last-child(2) .dollar {
     color: #FFFFFF;
 }
 

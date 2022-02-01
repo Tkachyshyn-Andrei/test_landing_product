@@ -7,3 +7,9 @@ $('.main-carousel').flickity({
     resize: true,
     groupCells: 1
 });
+
+$(document).ready(function () {
+    $('.navbar-toggler-icon').click(function () {
+        $('.navbar-toggler-icon').toggleClass('open-menu');
+    })
+})
