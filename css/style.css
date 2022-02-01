@@ -389,6 +389,11 @@ a:hover {
 
 .section_4 p {
     margin-bottom: 30px;
+    padding-left: 40px;
+}
+
+p:first-of-type {
+    padding-left: 0;
 }
 
 .section_4 p[class^=section_4_mark_]::before {
@@ -399,13 +404,15 @@ a:hover {
     border-radius: 14px;
     margin: 8px 30px 0 0;
     padding: 6px 9px 11px 10px;
-    float: left;
+    position: absolute;
+    left: 10px;
     transition: transform 0.4s ease-in-out;
 }
 
 .section_4 p[class^=section_4_mark_]:hover::before {
     transform: scale(1.25, 1.25);
     cursor: pointer;
+    padding-left: 20px;
 }
 
 .section_4 .section_4_mark_1::before {
