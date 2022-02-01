@@ -69,7 +69,7 @@ a:hover {
 }
 
 .button:hover {
-    background: #02BC6B;
+    background: rgba(60, 138, 122, .5);
     color: #000;
     box-shadow: -7px -7px 20px 0 #fff9,
     -4px -4px 5px 0 #fff9,
@@ -85,7 +85,6 @@ a:hover {
     right: 0;
     height: 2px;
     width: 0;
-    background: #000;
     transition: 400ms ease all;
 }
 
