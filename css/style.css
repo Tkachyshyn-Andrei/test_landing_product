@@ -230,6 +230,13 @@ a:hover {
     }
 }
 
+.circle-element:hover {
+    position: relative;
+    border: 3px solid #02897A;
+    border-radius: 50%;
+    padding: 5px;
+    text-align: center;
+}
 
 /*----------------------------section_1-------------------------------------*/
 .section_1 p {
@@ -583,9 +590,16 @@ p:first-of-type {
     color: #02897A;
 }
 
-.carousel-cell img {
+.section_7 .carousel-cell img {
     width: 100%;
     border-radius: 8px 8px 0 0;
+    filter: blur(3px);
+    transform: scale(0.8);
+}
+
+.main-carousel .carousel-cell.is-selected img{
+    filter: blur(0px);
+    transform: scale(1);
 }
 
 .flickity-page-dots {
@@ -886,7 +900,7 @@ div:nth-last-child(2) .dollar {
 
 @media screen and (max-width: 991px) {
     .section_10 {
-        margin-top: 30px;
+        margin-top: 90px;
     }
 
     .section_10 .join_block {
