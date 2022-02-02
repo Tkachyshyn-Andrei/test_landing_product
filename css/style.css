@@ -230,14 +230,6 @@ a:hover {
     }
 }
 
-.circle-element:hover {
-    position: relative;
-    border: 3px solid #02897A;
-    border-radius: 50%;
-    padding: 5px;
-    text-align: center;
-}
-
 /*----------------------------section_1-------------------------------------*/
 .section_1 p {
     font-size: 1.125rem;
@@ -266,6 +258,15 @@ a:hover {
     color: #02897A;
     font-weight: 600;
     text-decoration: underline;
+}
+
+.circle-element:hover {
+    display: inline-block;
+    position: relative;
+    border: 3px solid #02897A;
+    border-radius: 50%;
+    padding: 10px;
+    text-align: center;
 }
 
 @media screen and (max-width: 991px) {
@@ -419,7 +420,6 @@ p:first-of-type {
 .section_4 p[class^=section_4_mark_]:hover::before {
     transform: scale(1.25, 1.25);
     cursor: pointer;
-    padding-left: 20px;
 }
 
 .section_4 .section_4_mark_1::before {
@@ -593,13 +593,19 @@ p:first-of-type {
 .section_7 .carousel-cell img {
     width: 100%;
     border-radius: 8px 8px 0 0;
-    filter: blur(3px);
     transform: scale(0.8);
 }
 
-.main-carousel .carousel-cell.is-selected img{
-    filter: blur(0px);
+.section_7.main-carousel .carousel-cell.is-selected img {
     transform: scale(1);
+}
+
+.section_7 .main-carousel .carousel-cell {
+    filter: blur(3px);
+}
+
+.section_7 .main-carousel .carousel-cell.is-selected {
+    filter: blur(0);
 }
 
 .flickity-page-dots {
@@ -834,6 +840,10 @@ div:nth-last-child(2) .dollar {
     height: 50px;
 }
 
+.section_9 .avatar_row img {
+    max-width: none;
+}
+
 @media screen and (max-width: 991px) {
     .section_9 {
         margin-top: 30px;
@@ -908,6 +918,12 @@ div:nth-last-child(2) .dollar {
     }
 }
 
+@media screen and (max-width: 576px) {
+    .section_10 .join_block {
+        padding: 10px 20px 0 20px;
+    }
+}
+
 /*----------------------------footer-------------------------------------*/
 
 footer {
@@ -934,6 +950,10 @@ footer .row {
 
 footer .social_block {
     margin-top: 25px;
+}
+
+footer input {
+    padding-left: 10px;
 }
 
 @media screen and (min-width: 992px) {
