@@ -230,6 +230,13 @@ a:hover {
     }
 }
 
+.circle-element:hover {
+    position: relative;
+    border: 3px solid #02897A;
+    border-radius: 50%;
+    padding: 5px;
+    text-align: center;
+}
 
 /*----------------------------section_1-------------------------------------*/
 .section_1 p {
