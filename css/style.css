@@ -918,6 +918,12 @@ div:nth-last-child(2) .dollar {
     }
 }
 
+@media screen and (max-width: 576px) {
+    .section_10 .join_block {
+        padding: 10px 20px 0 20px;
+    }
+}
+
 /*----------------------------footer-------------------------------------*/
 
 footer {
