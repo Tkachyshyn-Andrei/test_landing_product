@@ -13,3 +13,19 @@ $(document).ready(function () {
         $('.navbar-toggler-icon').toggleClass('open-menu');
     })
 })
+
+// прокрутка
+
+$(document).ready(function(){
+    $('[href^="#"]').on('click', function(event){
+        if ($(this).attr('hash') !== "") {
+            event.preventDefault();
+            let hash = $(this).prop('hash');
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 3000, function(){
+            });
+        }
+    });
+});
+
