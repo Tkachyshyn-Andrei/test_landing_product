@@ -260,13 +260,13 @@ a:hover {
     text-decoration: underline;
 }
 
-.circle-element:hover {
+.button_video:hover .circle-border{
     display: inline-block;
     position: relative;
     border: 3px solid #02897A;
     border-radius: 50%;
-    padding: 10px;
-    text-align: center;
+    padding: 5px;
+    transition: .5s;
 }
 
 @media screen and (max-width: 991px) {
