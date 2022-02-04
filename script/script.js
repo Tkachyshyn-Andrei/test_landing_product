@@ -29,3 +29,11 @@ $(document).ready(function(){
     });
 });
 
+// Ефект нахилу картки
+VanillaTilt.init(document.querySelectorAll(".card_price"), {
+    max: 25,
+    speed: 400,
+    easing:"cubic-bezier(.03,.98,.52,.99)",
+    perspective:500,
+    transition:true
+});
