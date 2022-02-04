@@ -16,14 +16,14 @@ $(document).ready(function () {
 
 // прокрутка
 
-$(document).ready(function(){
-    $('[href^="#"]').on('click', function(event){
+$(document).ready(function () {
+    $('[href^="#"]').on('click', function (event) {
         if ($(this).attr('hash') !== "") {
             event.preventDefault();
             let hash = $(this).prop('hash');
             $('html, body').animate({
                 scrollTop: $(hash).offset().top
-            }, 3000, function(){
+            }, 3000, function () {
             });
         }
     });
@@ -33,7 +33,24 @@ $(document).ready(function(){
 VanillaTilt.init(document.querySelectorAll(".card_price"), {
     max: 25,
     speed: 400,
-    easing:"cubic-bezier(.03,.98,.52,.99)",
-    perspective:500,
-    transition:true
+    easing: "cubic-bezier(.03,.98,.52,.99)",
+    perspective: 500,
+    transition: true
+});
+
+// validation
+$(document).ready(function () {
+    $("#form").validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+        messages: {
+                email: {
+                    email: 'The email should be in the format: email@domain.com'
+                },
+            },
+        },
+    });
 });

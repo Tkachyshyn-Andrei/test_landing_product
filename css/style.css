@@ -987,10 +987,6 @@ footer label, footer input {
     width: 100%;
 }
 
-footer label {
-    margin-bottom: 21px;
-}
-
 footer input {
     border: 1px solid #BCD0E5;
     border-radius: 4px;
@@ -1010,4 +1006,17 @@ footer input {
     footer label, footer input {
         width: 75%;
     }
+}
+/*----------------------------validation-------------------------------------*/
+label.error {
+    color: red;
+    font-size: 1rem;
+    display: block;
+    margin-top: 5px;
+}
+
+input.error {
+    border: 1px dashed red;
+    font-weight: 300;
+    color: red;
 }
