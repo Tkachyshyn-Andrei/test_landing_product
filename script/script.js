@@ -46,10 +46,10 @@ $(document).ready(function () {
                 required: true,
                 email: true
             },
-        messages: {
-                email: {
-                    email: 'The email should be in the format: email@domain.com'
-                },
+        },
+        messages : {
+            email: {
+                email: "The email should be in the format: email@domain.com"
             },
         },
     });
