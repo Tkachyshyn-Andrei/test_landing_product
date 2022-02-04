@@ -627,6 +627,14 @@ p:first-of-type {
     background-color: #02897A;
 }
 
+.flickity-prev-next-button.previous {
+    left: -45px;
+}
+
+.flickity-prev-next-button.next {
+    right: -45px;
+}
+
 @media screen and (max-width: 991px) {
     .section_7 {
         margin-top: 30px;
