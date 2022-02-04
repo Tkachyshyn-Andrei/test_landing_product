@@ -261,7 +261,7 @@ a:hover {
     text-decoration: underline;
 }
 
-.button_video:hover .circle-border{
+.button_video:hover .circle-border {
     display: inline-block;
     position: relative;
     border: 3px solid #02897A;
@@ -565,6 +565,14 @@ p:first-of-type {
     height: 385px;
 }
 
+.flickity-prev-next-button.previous {
+    left: -40px;
+}
+
+.flickity-prev-next-button.next {
+    right: -40px;
+}
+
 @media screen and (max-width: 900px) {
     .carousel-cell {
         width: calc(100% / 2 - 8px);
@@ -576,8 +584,17 @@ p:first-of-type {
         width: 100%;
         margin-right: 0;
     }
+
     .section_7 .carousel-cell {
         height: 420px;
+    }
+
+    .flickity-prev-next-button.previous {
+        left: 10px;
+    }
+
+    .flickity-prev-next-button.next {
+        right: 10px;
     }
 }
 
@@ -627,13 +644,6 @@ p:first-of-type {
     background-color: #02897A;
 }
 
-.flickity-prev-next-button.previous {
-    left: -45px;
-}
-
-.flickity-prev-next-button.next {
-    right: -45px;
-}
 
 @media screen and (max-width: 991px) {
     .section_7 {
@@ -745,7 +755,7 @@ div:nth-child(2) .card_price {
     color: #FFFFFF;
 }
 
-div:nth-child(2) .card_price .price_link{
+div:nth-child(2) .card_price .price_link {
     color: #FFFFFF;
 }
 
@@ -869,6 +879,12 @@ div:nth-last-child(2) .per_month {
     max-width: none;
 }
 
+@media screen and (max-width: 650px) {
+    .list-wrap {
+        padding: 28px 55px 24px 55px;
+    }
+}
+
 @media screen and (max-width: 991px) {
     .section_9 {
         margin-top: 30px;
@@ -895,9 +911,10 @@ div:nth-last-child(2) .per_month {
 
 /*----------------------------section_10-------------------------------------*/
 .section_10 .row {
-    margin: 0 80px;
+    margin: 0 auto;
     background: #02897A;
     border-radius: 32px;
+    min-width: 332px;
 }
 
 .image_screen {
@@ -1015,6 +1032,7 @@ footer input {
         width: 75%;
     }
 }
+
 /*----------------------------validation-------------------------------------*/
 label.error {
     color: red;
