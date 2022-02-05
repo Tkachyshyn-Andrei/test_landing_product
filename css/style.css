@@ -992,6 +992,7 @@ footer input {
     padding-left: 10px;
 }
 
+
 @media screen and (min-width: 992px) {
     .social_block img:not(:last-child) {
         margin-right: 16px;
@@ -1019,6 +1020,11 @@ footer input {
 
 .ml-50 {
     margin-left: 50px;
+}
+
+footer form button:disabled {
+    pointer-events: none;
+    opacity: 0.3;
 }
 
 @media screen and (max-width: 767px) {

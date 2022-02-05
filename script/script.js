@@ -47,10 +47,15 @@ $(document).ready(function () {
                 email: true
             },
         },
-        messages : {
+        messages: {
             email: {
                 email: "The email should be in the format: email@domain.com"
             },
         },
     });
+});
+// validation button
+const form = document.getElementById('form');
+form.addEventListener("change", () => {
+    document.getElementById('submitBtn').disabled = !form.checkValidity()
 });
