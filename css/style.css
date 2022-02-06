@@ -1052,3 +1052,16 @@ input.error {
     font-weight: 300;
     color: red;
 }
+
+/*----------------------------modal email-------------------------------------*/
+button.swal2-styled.swal2-confirm {
+    border: 1px solid #BCD0E5;
+    border-radius: 4px;
+    background-color: #02897A;
+    color: #FFFFFF;
+    padding: 10px 23px 9px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}

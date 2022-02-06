@@ -59,3 +59,36 @@ const form = document.getElementById('form');
 form.addEventListener("change", () => {
     document.getElementById('submitBtn').disabled = !form.checkValidity()
 });
+
+// modal email
+const btn = document.getElementById('btn_expert');
+btn.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Input email address',
+        input: 'email',
+        inputLabel: 'Your email address',
+        inputPlaceholder: 'Enter your email address',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                {
+                    icon: 'success',
+                    title: 'Your email has been sent',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+        }
+    })
+});
