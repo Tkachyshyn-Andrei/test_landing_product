@@ -50,7 +50,7 @@ $("#form").validate({
 
 // validation button
 const form = document.getElementById('form');
-form.addEventListener("change", () => {
+form.addEventListener("click", () => {
     document.getElementById('submitBtn').disabled = !form.checkValidity()
 });
 
@@ -116,7 +116,7 @@ $(".sign_up").on('click', function () {
             } else if (!emailReg.test(email)) {
                 Swal.showValidationMessage(`The email should be in the format: email@domain.com`)
             } else if (!phoneReg.test(phone)) {
-                Swal.showValidationMessage(`The phone should be in the format: 380670000000`)
+                Swal.showValidationMessage(`The phone should be in the format: 123451234567`)
             } else if (flatpickrInstance.selectedDates[0] > new Date()) {
                 Swal.showValidationMessage(`The departure date can't be in the past`)
             }
