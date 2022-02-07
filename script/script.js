@@ -8,15 +8,11 @@ $('.main-carousel').flickity({
     groupCells: 1
 });
 
-$(document).ready(function () {
-    $('.navbar-toggler-icon').click(function () {
-        $('.navbar-toggler-icon').toggleClass('open-menu');
-    })
+$('.navbar-toggler-icon').click(function () {
+    $('.navbar-toggler-icon').toggleClass('open-menu');
 })
 
 // прокрутка
-
-
 $('[href^="#"]').on('click', function (event) {
     if ($(this).attr('hash') !== "") {
         event.preventDefault();
@@ -28,7 +24,6 @@ $('[href^="#"]').on('click', function (event) {
     }
 });
 
-
 // Ефект нахилу картки
 VanillaTilt.init(document.querySelectorAll(".card_price"), {
     max: 25,
@@ -39,21 +34,20 @@ VanillaTilt.init(document.querySelectorAll(".card_price"), {
 });
 
 // validation
-$(document).ready(function () {
-    $("#form").validate({
-        rules: {
-            email: {
-                required: true,
-                email: true
-            },
+$("#form").validate({
+    rules: {
+        email: {
+            required: true,
+            email: true
         },
-        messages: {
-            email: {
-                email: "The email should be in the format: email@domain.com"
-            },
+    },
+    messages: {
+        email: {
+            email: "The email should be in the format: email@domain.com"
         },
-    });
+    },
 });
+
 // validation button
 const form = document.getElementById('form');
 form.addEventListener("change", () => {
@@ -95,13 +89,13 @@ btn.addEventListener('click', () => {
 
 // modal registration
 $(".sign_up").on('click', function () {
+    let flatpickrInstance
     Swal.fire({
         title: 'Registration',
         html:
             `<input type="text" id="login" class="swal2-input" placeholder="Username">              
             <input type="email" id="email" class="swal2-input" placeholder="Enter email address">            
-            <input type="text" id="phone" class="swal2-input" placeholder="Enter phone number">
-            
+            <input type="text" id="phone" class="swal2-input" placeholder="Enter phone number">            
             <input class="swal2-input flatpickr-input" id="expiry-date" placeholder="Enter date of birth" type="text" readonly="readonly">
             
             <select id="country" class="swal2-select"">
@@ -110,21 +104,21 @@ $(".sign_up").on('click', function () {
             `,
         confirmButtonText: 'Sign in',
         focusConfirm: false,
-
         preConfirm: () => {
             const login = Swal.getPopup().querySelector('#login').value
             const email = Swal.getPopup().querySelector('#email').value
             const phone = Swal.getPopup().querySelector('#phone').value
             const country = Swal.getPopup().querySelector('#country').value
             const emailReg = /^([\w-.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-            if (!emailReg.test( email ) ) {
-                Swal.showValidationMessage(`The email should be in the format: email@domain.com`)
-            } else
-            if (flatpickrInstance.selectedDates[0] > new Date()) {
-                Swal.showValidationMessage(`Please enter a valid date of birth`)
-            }else
+            const phoneReg = /^\d{12}$/;
             if (!login || !email || !phone || !country) {
                 Swal.showValidationMessage(`Please fill in all fields`)
+            } else if (!emailReg.test(email)) {
+                Swal.showValidationMessage(`The email should be in the format: email@domain.com`)
+            } else if (!phoneReg.test(phone)) {
+                Swal.showValidationMessage(`The phone should be in the format: 380670000000`)
+            } else if (flatpickrInstance.selectedDates[0] > new Date()) {
+                Swal.showValidationMessage(`The departure date can't be in the past`)
             }
             return {login: login, email: email, phone: phone}
         },
