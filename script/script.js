@@ -92,3 +92,55 @@ btn.addEventListener('click', () => {
         }
     })
 });
+
+// modal registration
+$(".sign_up").on('click', function (){
+    Swal.fire({
+        title: 'Registration',
+        html:
+            `<input type="text" id="login" class="swal2-input" placeholder="Username">              
+            <input type="email" id="email" class="swal2-input" placeholder="Enter email address">
+            <input type="text" id="phone" class="swal2-input" placeholder="Enter phone number">
+            <input type="number" id="birthday" class="swal2-input" placeholder="Enter date of birth">   
+            <select id="country" class="swal2-select"">
+            <option value="" disabled="">Select a country</option> 
+            <option value="bananas">Ukraine</option>    
+            <input class="swal2-input flatpickr-input" id="expiry-date" type="text" readonly="readonly">
+            `,
+        confirmButtonText: 'Sign in',
+        focusConfirm: false,
+        preConfirm: () => {
+            const login = Swal.getPopup().querySelector('#login').value
+            const email = Swal.getPopup().querySelector('#email').value
+            const phone = Swal.getPopup().querySelector('#phone').value
+            const birthday = Swal.getPopup().querySelector('#birthday').value
+            const country = Swal.getPopup().querySelector('#country').value
+            if (!login || !email || !phone || !birthday || !country) {
+                Swal.showValidationMessage(`Please fill in all fields`)
+            }
+            return { login: login, email: email, phone: phone, birthday: birthday}
+        },
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                {
+                    icon: 'success',
+                    title: 'Thank you for registering',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+        }
+    })
+});
