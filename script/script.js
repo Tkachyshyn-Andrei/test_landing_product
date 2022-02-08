@@ -96,7 +96,7 @@ $(".sign_up").on('click', function () {
             `<input type="text" id="login" class="swal2-input" placeholder="Username">              
             <input type="email" id="email" class="swal2-input" placeholder="Enter email address">            
             <input type="text" id="phone" class="swal2-input" placeholder="Enter phone number">            
-            <input class="swal2-input flatpickr-input" id="expiry-date" placeholder="Enter date of birth" type="text" readonly="readonly">
+            <input class="swal2-input flatpickr-input" id="expiry-date" placeholder="Enter date of birth" readonly="readonly">
             
             <select id="country" class="swal2-select"">
             <option value="" disabled="">Select a country</option> 
@@ -108,10 +108,12 @@ $(".sign_up").on('click', function () {
             const login = Swal.getPopup().querySelector('#login').value
             const email = Swal.getPopup().querySelector('#email').value
             const phone = Swal.getPopup().querySelector('#phone').value
+            const birthday = Swal.getPopup().querySelector('#expiry-date').value
+
             const country = Swal.getPopup().querySelector('#country').value
             const emailReg = /^([\w-.]+@([\w-]+\.)+[\w-]{2,4})?$/;
             const phoneReg = /^\d{12}$/;
-            if (!login || !email || !phone || !country) {
+            if (!login || !email || !phone || !country || !birthday) {
                 Swal.showValidationMessage(`Please fill in all fields`)
             } else if (!emailReg.test(email)) {
                 Swal.showValidationMessage(`The email should be in the format: email@domain.com`)
