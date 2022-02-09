@@ -1,3 +1,8 @@
+@import "node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "node_modules/animate.css/animate.min.css";
+@import "node_modules/flatpickr/dist/flatpickr.min.css";
+@import "node_modules/flickity/dist/flickity.min.css";
+
 html, body, a {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
