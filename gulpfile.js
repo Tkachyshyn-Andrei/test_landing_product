@@ -1,14 +1,16 @@
 const {src, dest, series, watch, parallel} = require('gulp')
+const scss = require('gulp-sass')(require('sass'));
 const imagemin = require('gulp-imagemin');
 const connect = require('gulp-connect');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
-const cssmin = require('gulp-cssmin');
+// const cssmin = require('gulp-cssmin');
 
 
 const appPath = {
-    css: './app/css/*.css',
+    scss: './app/scss/**/*.scss',
+    // css: './app/css/*.css',
     js: './app/script/*.js',
     img: [
         './app/images/**/*.jpg',
@@ -30,6 +32,7 @@ const jsPath = [
     './node_modules/jquery-validation/dist/jquery.validate.min.js',
     './node_modules/sweetalert2/dist/sweetalert2.all.min.js',
     './node_modules/flatpickr/dist/flatpickr.js',
+    './node_modules/jquery.maskedinput/src/jquery.maskedinput.js',
     './app/script/script.js'
 ]
 
@@ -37,6 +40,17 @@ function imageMin() {
     return src(appPath.img)
         .pipe(imagemin())
         .pipe(dest(destPath.img))
+        .pipe(connect.reload())
+}
+
+function scssCompress() {
+    return src(appPath.scss)
+        .pipe(sourcemaps.init())
+        .pipe(scss({
+            // outputStyle: 'compressed'
+        }))
+        .pipe(sourcemaps.write())
+        .pipe(dest(destPath.css))
         .pipe(connect.reload())
 }
 
@@ -57,12 +71,12 @@ function jsMin() {
 
 }
 
-function cssMin() {
-    return src(appPath.css)
-        .pipe(cssmin())
-        .pipe(dest(destPath.css))
-        .pipe(connect.reload())
-}
+// function cssMin() {
+//     return src(appPath.css)
+//         .pipe(cssmin())
+//         .pipe(dest(destPath.css))
+//         .pipe(connect.reload())
+// }
 
 function server() {
     connect.server({
@@ -75,10 +89,11 @@ function server() {
 
 function watchCode() {
     watch('app/*.html', copyHtml);
-    watch(appPath.css, cssMin);
+    // watch(appPath.css, cssMin);
+    watch(appPath.scss, scssCompress);
     watch(appPath.js, jsMin);
     watch(appPath.img, {events: 'add'}, imageMin);
 }
 
-exports.build = series(copyHtml, imageMin, jsMin, cssMin)
-exports.default = series(copyHtml, imageMin, jsMin, cssMin, parallel(server, watchCode))
+exports.build = series(copyHtml, imageMin, jsMin, scssCompress)
+exports.default = series(copyHtml, scssCompress, imageMin, jsMin, parallel(server, watchCode))
