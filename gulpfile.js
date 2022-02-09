@@ -25,11 +25,11 @@ const destPath = {
 }
 
 const jsPath = [
-    './node_modules/jquery/dist/jquery.min.js',
-    './node_modules/flickity/dist/flickity.pkgd.min.js',
-    './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
-    './node_modules/vanilla-tilt/dist/vanilla-tilt.min.js',
-    './node_modules/jquery-validation/dist/jquery.validate.min.js',
+    './node_modules/jquery/dist/jquery.js',
+    './node_modules/flickity/dist/flickity.pkgd.js',
+    './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+    './node_modules/vanilla-tilt/dist/vanilla-tilt.js',
+    './node_modules/jquery-validation/dist/jquery.validate.js',
     './node_modules/sweetalert2/dist/sweetalert2.all.min.js',
     './node_modules/flatpickr/dist/flatpickr.js',
     './node_modules/jquery.maskedinput/src/jquery.maskedinput.js',

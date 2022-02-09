@@ -1,5 +1,6 @@
 @import "./../../node_modules/bootstrap/scss/bootstrap";
 @import "./../../node_modules/animate-scss/animate";
+@import "./../../node_modules/animate.css/animate";
 @import "./../../node_modules/flickity.scss/flickity";
 @import "../../node_modules/flatpickr/dist/flatpickr";
 
@@ -1075,3 +1076,10 @@ button.swal2-styled.swal2-confirm {
     display: inline-block;
     position: relative;
 }
+
+@media screen and (max-width: 443px) {
+    .swal2-html-container {
+        margin: 0 !important;
+    }
+}
+
