@@ -1057,6 +1057,19 @@ label.error {
     display: block;
     margin-top: 5px;
 }
+@media screen and (min-width: 407px) and (max-width: 575px) {
+    label.error {
+        text-align: initial;
+        margin-left: auto;
+        margin-right: 8px;
+    }
+}
+
+@media screen and (max-width: 406px) {
+    label.error {
+        margin: auto;
+    }
+}
 
 input.error {
     border: 1px dashed red;
