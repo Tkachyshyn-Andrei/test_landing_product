@@ -1,8 +1,7 @@
 @import "./../../node_modules/bootstrap/scss/bootstrap";
-@import "./../../node_modules/animate-scss/animate.scss";
-@import "./../../node_modules/flickity.scss/flickity.scss";
-
-@import "./../../node_modules/flatpickr/dist/flatpickr.min.css";
+@import "./../../node_modules/animate-scss/animate";
+@import "./../../node_modules/flickity.scss/flickity";
+@import "../../node_modules/flatpickr/dist/flatpickr";
 
 html, body, a {
     font-family: 'Poppins', sans-serif;
