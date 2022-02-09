@@ -187,11 +187,11 @@ a:hover {
 }
 
 .navbar-toggler-icon.open-menu:before {
-    transform: translateY(12px) rotate(135deg);
+    transform: translateY(15px) rotate(130deg);
 }
 
 .navbar-toggler-icon.open-menu:after {
-    transform: translateY(-12px) rotate(-135deg);
+    transform: translateY(-11px) rotate(-130deg);
 }
 
 .navbar-toggler-icon.open-menu div {
