@@ -112,7 +112,7 @@ $(".sign_up").on('click', function () {
             const country = Swal.getPopup().querySelector('#country').value
             const loginReg = /[^a-z\s]/;
             const emailReg = /^([\w-.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-            const phoneReg = /\d{2}\(\d{3}\)\d{3}-\d{4}/;
+            const phoneReg = /^\d{10}$/;
             // $("#phone").mask("38(999)999-9999");
             if (!login || !email || !phone || !country || !birthday) {
                 Swal.showValidationMessage(`Please fill in all fields`)
@@ -121,7 +121,7 @@ $(".sign_up").on('click', function () {
             } else if (!emailReg.test(email)) {
                 Swal.showValidationMessage(`The email should be in the format: email@domain.com`)
             } else if (!phoneReg.test(phone)) {
-                Swal.showValidationMessage(`The phone should be in the format: 38(999)999-9999`)
+                Swal.showValidationMessage(`The phone should be in the format: 0xxxxxxxxx`)
             } else if (flatpickrInstance.selectedDates[0] > new Date()) {
                 Swal.showValidationMessage(`Date of birth cannot be in the future`)
             }
