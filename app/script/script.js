@@ -96,10 +96,9 @@ $(".sign_up").on('click', function () {
             `<input type="text" id="login" class="swal2-input" placeholder="Username">              
             <input type="email" id="email" class="swal2-input" placeholder="Enter email address">            
             <input type="text" id="phone" class="swal2-input" placeholder="Enter phone number">            
-            <input class="swal2-input flatpickr-input" id="expiry-date" placeholder="Enter date of birth" readonly="readonly">
-            
+            <input class="swal2-input flatpickr-input" id="expiry-date" placeholder="Enter date of birth" readonly="readonly">            
             <select id="country" class="swal2-select">
-                <option value="" disabled="">Select a country</option> 
+                <option value="" disabled="" selected>Select a country</option> 
             </select>
             `,
         confirmButtonText: 'Sign in',
@@ -120,7 +119,6 @@ $(".sign_up").on('click', function () {
             const loginReg = /[^a-z\s]/;
             const emailReg = /^([\w-.]+@([\w-]+\.)+[\w-]{2,4})?$/;
             const phoneReg = /^\d{10}$/;
-            // $("#phone").mask("38(999)999-9999");
             if (!login || !email || !phone || !country || !birthday) {
                 Swal.showValidationMessage(`Please fill in all fields`)
             } else if (loginReg.test(login)) {
@@ -132,7 +130,7 @@ $(".sign_up").on('click', function () {
             } else if (flatpickrInstance.selectedDates[0] > new Date()) {
                 Swal.showValidationMessage(`Date of birth cannot be in the future`)
             }
-            return {login: login, email: email, phone: phone, birthday: birthday}
+            return {login: login, email: email, phone: phone, birthday: birthday, country:country}
         },
         willOpen: () => {
             flatpickrInstance = flatpickr(
