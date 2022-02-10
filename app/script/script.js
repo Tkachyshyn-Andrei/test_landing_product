@@ -98,7 +98,7 @@ $(".sign_up").on('click', function () {
             `<input type="text" id="login" class="swal2-input" placeholder="Username">              
             <input type="email" id="email" class="swal2-input" placeholder="Enter email address">            
             <input type="text" id="phone" class="swal2-input" placeholder="Enter phone number">            
-            <input class="swal2-input flatpickr-input" id="expiry-date" placeholder="Enter date of birth" readonly="readonly">            
+            <input class="swal2-input flatpickr-input" data-max-date=today id="expiry-date" placeholder="Enter date of birth" readonly="readonly">            
             <select id="country" class="swal2-select">
                 <option value="" disabled="" selected>Select a country</option> 
             </select>
