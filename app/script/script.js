@@ -118,7 +118,7 @@ $(".sign_up").on('click', function () {
             const phone = Swal.getPopup().querySelector('#phone').value
             const birthday = Swal.getPopup().querySelector('#expiry-date').value
             const country = Swal.getPopup().querySelector('#country').value
-            const loginReg = /[^a-z\s]/;
+            const loginReg = /[^a-zA-Z\s]/;
             const emailReg = /^([\w-.]+@([\w-]+\.)+[\w-]{2,4})?$/;
             const phoneReg = /^\d{10}$/;
             if (!login || !email || !phone || !country || !birthday) {
