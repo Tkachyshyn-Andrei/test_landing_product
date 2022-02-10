@@ -1067,6 +1067,7 @@ label.error {
 @media screen and (max-width: 406px) {
     label.error {
         margin: auto;
+        display: table-cell !important;
     }
 }
 
