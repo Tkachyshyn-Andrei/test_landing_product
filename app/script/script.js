@@ -89,19 +89,6 @@ btn.addEventListener('click', () => {
 
 // modal registration
 $(".sign_up").on('click', function () {
-    const inputOptionsPromise = new Promise(function(resolve) {
-        // get your data and pass it to resolve()
-        setTimeout(function() {
-
-            $.getJSON("https://trial.mobiscroll.com/content/countries.json", function(data) {
-                resolve(data)
-                console.log(data);
-            });
-
-        }, 2000)
-    })
-
-
     let flatpickrInstance
     Swal.fire({
         title: 'Registration',
@@ -111,14 +98,18 @@ $(".sign_up").on('click', function () {
             <input type="text" id="phone" class="swal2-input" placeholder="Enter phone number">            
             <input class="swal2-input flatpickr-input" id="expiry-date" placeholder="Enter date of birth" readonly="readonly">
             
-            <select id="country" class="swal2-select"">
-            <option value="" disabled="">Select a country</option> 
-            <option value="bananas">Ukraine</option>   
+            <select id="country" class="swal2-select">
+                <option value="" disabled="">Select a country</option> 
+            </select>
             `,
         confirmButtonText: 'Sign in',
-
-        inputOptions: inputOptionsPromise,
-
+        didRender(popup) {
+            $.getJSON("https://trial.mobiscroll.com/content/countries.json", function (data) {
+                data.forEach(({value, text}) => {
+                    $(popup).find('select#country').append($(`<option value="${value}">${text}</option>`))
+                })
+            });
+        },
         focusConfirm: false,
         preConfirm: () => {
             const login = Swal.getPopup().querySelector('#login').value
