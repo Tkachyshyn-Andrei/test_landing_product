@@ -1069,9 +1069,6 @@ label.error {
         margin: auto;
         display: table-cell !important;
     }
-    .swal2-html-container {
-        margin: 1em 0.6em 0.3em !important;
-    }
 }
 
 input.error {
@@ -1096,6 +1093,9 @@ button.swal2-styled.swal2-confirm {
 @media screen and (max-width: 443px) {
     .swal2-html-container {
         margin: 0 !important;
+    }
+    .swal2-input {
+        max-width: 75% !important;
     }
 }
 
