@@ -89,6 +89,19 @@ btn.addEventListener('click', () => {
 
 // modal registration
 $(".sign_up").on('click', function () {
+    const inputOptionsPromise = new Promise(function(resolve) {
+        // get your data and pass it to resolve()
+        setTimeout(function() {
+
+            $.getJSON("https://trial.mobiscroll.com/content/countries.json", function(data) {
+                resolve(data)
+                console.log(data);
+            });
+
+        }, 2000)
+    })
+
+
     let flatpickrInstance
     Swal.fire({
         title: 'Registration',
@@ -103,6 +116,9 @@ $(".sign_up").on('click', function () {
             <option value="bananas">Ukraine</option>   
             `,
         confirmButtonText: 'Sign in',
+
+        inputOptions: inputOptionsPromise,
+
         focusConfirm: false,
         preConfirm: () => {
             const login = Swal.getPopup().querySelector('#login').value
