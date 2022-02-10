@@ -49,10 +49,12 @@ $("#form").validate({
 });
 
 // validation button
-const form = document.getElementById('form');
-form.addEventListener("click", () => {
-    document.getElementById('submitBtn').disabled = !form.checkValidity()
-});
+document.getElementById('email_sign').onkeyup = countChars;
+function countChars() {
+    const chars = document.getElementById('email_sign').value;
+    document.getElementById('submitBtn').disabled = chars.length < 1;
+}
+
 
 // modal email
 const btn = document.getElementById('btn_expert');
