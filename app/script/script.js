@@ -34,11 +34,13 @@ VanillaTilt.init(document.querySelectorAll(".card_price"), {
 });
 
 // validation
+
 $("form").validate({
     rules: {
         email: {
             required: true,
-            email: true
+            email: true,
+            // accept: /^([\w-.]+@([\w-]+\.)+[\w-]{2,4})?$/
         },
         password: {
             required: true,
@@ -51,13 +53,15 @@ $("form").validate({
         },
     },
 });
+// validation button "Sign up Now"
+$('#form input').bind('keyup blur click', function () { // fires on every keyup & blur
+    if ($('#form').validate().checkForm()) {                   // checks form for validity
+        $('#submitBtn').prop('disabled', false); // enables button
+    } else {
+        $('#submitBtn').prop('disabled', true);   // disables button
+    }
+});
 
-// validation button
-document.getElementById('email_sign').onkeyup = countChars;
-function countChars() {
-    const chars = document.getElementById('email_sign').value;
-    document.getElementById('submitBtn').disabled = chars.length < 1;
-}
 
 
 // modal email
@@ -93,18 +97,18 @@ btn.addEventListener('click', () => {
     })
 });
 
-// modal registration
+//modal registration
 $(".sign_up").on('click', function () {
     let flatpickrInstance
     Swal.fire({
         title: 'Registration',
         html:
-            `<input type="text" id="login" class="swal2-input" placeholder="Username">              
-            <input type="email" id="email" class="swal2-input" placeholder="Enter email address">            
-            <input type="text" id="phone" class="swal2-input" placeholder="Enter phone number">            
-            <input class="swal2-input flatpickr-input" data-max-date=today id="expiry-date" placeholder="Enter date of birth" readonly="readonly">            
+            `<input type="text" id="login" class="swal2-input" placeholder="Username">
+            <input type="email" id="email" class="swal2-input" placeholder="Enter email address">
+            <input type="text" id="phone" class="swal2-input" placeholder="Enter phone number">
+            <input class="swal2-input flatpickr-input" data-max-date=today id="expiry-date" placeholder="Enter date of birth" readonly="readonly">
             <select id="country" class="swal2-select">
-                <option value="" disabled="" selected>Select a country</option> 
+                <option value="" disabled="" selected>Select a country</option>
             </select>
             `,
         confirmButtonText: 'Sign in',
@@ -167,3 +171,4 @@ $(".sign_up").on('click', function () {
         }
     })
 });
+
