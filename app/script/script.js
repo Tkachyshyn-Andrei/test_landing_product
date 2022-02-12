@@ -34,13 +34,10 @@ VanillaTilt.init(document.querySelectorAll(".card_price"), {
 });
 
 // validation
-
 $("form").validate({
     rules: {
         email: {
-            required: true,
             email: true,
-            // accept: /^([\w-.]+@([\w-]+\.)+[\w-]{2,4})?$/
         },
         password: {
             required: true,
@@ -53,20 +50,18 @@ $("form").validate({
         },
     },
 });
+
 // validation button "Sign up Now"
-$('#form input').bind('keyup blur click', function () { // fires on every keyup & blur
-    if ($('#form').validate().checkForm()) {                   // checks form for validity
-        $('#submitBtn').prop('disabled', false); // enables button
+$('#form input').bind('keyup blur', function () {
+    if ($('#form').validate().checkForm()) {
+        $('#submitBtn').prop('disabled', false);
     } else {
-        $('#submitBtn').prop('disabled', true);   // disables button
+        $('#submitBtn').prop('disabled', true);
     }
 });
 
-
-
 // modal email
-const btn = document.getElementById('btn_expert');
-btn.addEventListener('click', () => {
+$(".section_2_btn").on('click', function () {
     Swal.fire({
         title: 'Input email address',
         input: 'email',
@@ -140,7 +135,7 @@ $(".sign_up").on('click', function () {
             } else if (flatpickrInstance.selectedDates[0] > new Date()) {
                 Swal.showValidationMessage(`Date of birth cannot be in the future`)
             }
-            return {login: login, email: email, phone: phone, birthday: birthday, country:country}
+            return {login: login, email: email, phone: phone, birthday: birthday, country: country}
         },
         willOpen: () => {
             flatpickrInstance = flatpickr(
@@ -172,3 +167,8 @@ $(".sign_up").on('click', function () {
     })
 });
 
+// validation button "Login"
+const login_form = document.getElementById('login_form');
+login_form.addEventListener("keyup", () => {
+    document.getElementById('login_btn').disabled = !login_form.checkValidity()
+});
