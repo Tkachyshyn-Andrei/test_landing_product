@@ -21,13 +21,21 @@
 
 <section>
     <div class="container d-flex justify-content-center">
-        <form id="login_form">
-            <h2> Login Form </h2>
-            <label class="login_input justify-content-center">
-                <input id="login" name="login" type="text" placeholder="Enter login">
-                <input id="password" name="password" type="password" placeholder="Enter password">
-            </label>
-                <button class="button" type="submit">login</button>
+        <form action="#" class="login_form">
+            <h2>Login in</h2>
+            <div class="form-row">
+                <div class="col-12 mb-3">
+                    <label for="email">Email</label>
+                    <input name="email" type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 mb-3">
+                    <label for="password">Password</label>
+                    <input name="password" type="password" class="form-control" id="password" placeholder="Enter password">
+                </div>
+            </div>
+            <button class="button" type="submit">Login</button>
         </form>
     </div>
 </section>

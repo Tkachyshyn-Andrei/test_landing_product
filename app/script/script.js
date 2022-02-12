@@ -34,16 +34,20 @@ VanillaTilt.init(document.querySelectorAll(".card_price"), {
 });
 
 // validation
-$("#form").validate({
+$("form").validate({
     rules: {
         email: {
             required: true,
             email: true
         },
+        password: {
+            required: true,
+            password: true,
+        },
     },
     messages: {
         email: {
-            email: "The email should be in the format: email@domain.com"
+            email: "Your email must be in the format of name@domain.com"
         },
     },
 });

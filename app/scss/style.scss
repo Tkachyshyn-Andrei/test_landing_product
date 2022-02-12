@@ -1032,9 +1032,11 @@ footer input {
     margin-left: 50px;
 }
 
-footer form button:disabled {
+form button:disabled {
     pointer-events: none;
     opacity: 0.3;
+    margin: 0 auto;
+    display: block;
 }
 
 @media screen and (max-width: 767px) {
@@ -1053,21 +1055,12 @@ footer form button:disabled {
 label.error {
     color: red;
     font-size: 1rem;
-    display: block;
     margin-top: 5px;
 }
-@media screen and (min-width: 407px) and (max-width: 575px) {
-    label.error {
-        text-align: initial;
-        margin-left: auto;
-        margin-right: 8px;
-    }
-}
-
-@media screen and (max-width: 406px) {
-    label.error {
-        margin: auto;
-        display: table-cell !important;
+@media screen and (max-width: 575px) {
+    .sign_up_now {
+        max-width: 270px;
+        margin: 0 auto;
     }
 }
 
@@ -1112,36 +1105,12 @@ button.swal2-styled.swal2-confirm {
     font-size: 1.125em;
 }
 /*----------------------------login.html-------------------------------------*/
-#login_form {
-    display: block;
-    box-sizing: border-box;
-    width: 20em;
-    max-width: 100%;
-    min-width: 300px;
-    position: relative;
-    color: #545454;
-    font-size: 1.875em;
-    font-weight: 600;
-    text-align: center;
+.login_form  {
+    max-width: 228px;
+    width: 100%;
+    padding: 0 10px;
 }
 
-.login_input input {
-    box-sizing: border-box;
-    width: auto;
-    max-width: 100%;
-    transition: border-color .1s,box-shadow .1s;
-    border: 1px solid #d9d9d9;
-    border-radius: 0.1875em;
-    background: inherit;
-    box-shadow: inset 0 1px 1px rgb(0 0 0 / 6%), 0 0 0 3px transparent;
-    color: inherit;
-    font-size: 1.125em;
-    height: 2.625em;
-    margin: 1em 0 3px;
-    padding: 0 0.75em;
-}
-@media screen and (max-width: 575px) {
-    .login_input input {
-        width: 90%;
-    }
+.login_form h2 {
+    text-align: center;
 }
