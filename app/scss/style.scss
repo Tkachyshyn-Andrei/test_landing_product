@@ -256,8 +256,6 @@ a:hover {
 .button_video {
   background-color: Transparent;
   border: none;
-  cursor: pointer;
-  padding-left: 10px;
 }
 
 .bg-href {
@@ -267,17 +265,31 @@ a:hover {
 }
 
 .circle-border {
-  color: #02897A;
-  border: 3px solid transparent;
-  border-radius: 50%;
   display: inline-block;
-  padding: 3px;
+  padding: 6px 6px;
+  height: 40px;
   width: 40px;
-  transition: .5s;
+  position: relative;
 }
 
-.button_video:hover .circle-border {
-  border-color: #02897A !important;
+.circle-border::before {
+  content: '';
+  border-radius: 50% ;
+  border: 3px solid transparent;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 1s;
+  margin: auto;
+  transform: scale(0);
+}
+
+.button_video:hover .circle-border::before{
+  border-color: #02897A;
+  transform: scale(1);
 }
 
 @media screen and (max-width: 991px) {
