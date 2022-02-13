@@ -33,6 +33,7 @@ VanillaTilt.init(document.querySelectorAll(".card_price"), {
     transition: true
 });
 
+
 // validation
 $("form").validate({
     rules: {
@@ -100,7 +101,7 @@ $(".sign_up").on('click', function () {
         html:
             `<input type="text" id="login" class="swal2-input" placeholder="Username">
             <input type="email" id="email" class="swal2-input" placeholder="Enter email address">
-            <input type="text" id="phone" class="swal2-input" placeholder="Enter phone number">
+            <input type="text" id="phone" class="swal2-input" maxlength="10" placeholder="Enter phone number">
             <input class="swal2-input flatpickr-input" data-max-date=today id="expiry-date" placeholder="Enter date of birth" readonly="readonly">
             <select id="country" class="swal2-select">
                 <option value="" disabled="" selected>Select a country</option>
