@@ -34,11 +34,15 @@ VanillaTilt.init(document.querySelectorAll(".card_price"), {
 });
 
 
-// validation
+// validation login form
+$.validator.methods.email = function( value, element ) {
+    return this.optional( element ) || /[a-z]+@[a-z]+\.[a-z]+/.test( value );
+}
 
-$("form").validate({
+$("#login_form").validate({
     rules: {
         email: {
+            required: true,
             email: true,
         },
         password: {
@@ -51,26 +55,36 @@ $("form").validate({
             email: "Your email must be in the format of name@domain.com"
         },
     },
+    submitHandler: function(){
+        history.go(-1);
+        return false;
+    }
 });
 
 
 // validation button "Sign up Now"
-$('#form input').bind('keyup blur', function () {
-    if ($('#form').validate().checkForm()) {
+$("#form_sign_up_now").validate({
+    rules: {
+        email: {
+            required: true,
+            email: true,
+        },
+    },
+    messages: {
+        email: {
+            email: "Your email must be in the format of name@domain.com"
+        },
+    },
+});
+$('#form_sign_up_now').bind('keyup blur', function () {
+    if ($('#form_sign_up_now').validate().checkForm()) {
         $('#submitBtn').prop('disabled', false);
     } else {
         $('#submitBtn').prop('disabled', true);
     }
 });
 
-// validation button "Login"
-$('#login_form input').bind('keyup blur', function () {
-    if ($('#login_form').validate().checkForm()) {
-        $('#login_btn').prop('disabled', false);
-    } else {
-        $('#login_btn').prop('disabled', true);
-    }
-});
+
 
 // modal email
 $(".section_2_btn").on('click', function () {
@@ -79,12 +93,14 @@ $(".section_2_btn").on('click', function () {
         input: 'email',
         inputLabel: 'Your email address',
         inputPlaceholder: 'Enter your email address',
+        validationMessage: 'The email should be in the format: email@domain.com',
         showClass: {
             popup: 'animate__animated animate__fadeInDown'
         },
         hideClass: {
             popup: 'animate__animated animate__fadeOutUp'
         }
+
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire(
