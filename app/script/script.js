@@ -35,6 +35,7 @@ VanillaTilt.init(document.querySelectorAll(".card_price"), {
 
 
 // validation
+
 $("form").validate({
     rules: {
         email: {
@@ -42,8 +43,8 @@ $("form").validate({
         },
         password: {
             required: true,
-            password: true,
-        },
+            minlength: 6,
+        }
     },
     messages: {
         email: {
@@ -52,12 +53,22 @@ $("form").validate({
     },
 });
 
+
 // validation button "Sign up Now"
 $('#form input').bind('keyup blur', function () {
     if ($('#form').validate().checkForm()) {
         $('#submitBtn').prop('disabled', false);
     } else {
         $('#submitBtn').prop('disabled', true);
+    }
+});
+
+// validation button "Login"
+$('#login_form input').bind('keyup blur', function () {
+    if ($('#login_form').validate().checkForm()) {
+        $('#login_btn').prop('disabled', false);
+    } else {
+        $('#login_btn').prop('disabled', true);
     }
 });
 
@@ -168,8 +179,3 @@ $(".sign_up").on('click', function () {
     })
 });
 
-// validation button "Login"
-const login_form = document.getElementById('login_form');
-login_form.addEventListener("keyup", () => {
-    document.getElementById('login_btn').disabled = !login_form.checkValidity()
-});
