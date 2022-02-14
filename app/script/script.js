@@ -35,8 +35,15 @@ VanillaTilt.init(document.querySelectorAll(".card_price"), {
 
 
 // validation login form
+$.validator.methods.login = function (value, element) {
+    return this.optional(element) || /^[a-zA-Z0-9-_][a-zA-Z0-9-_]{1,20}$/.test(value);
+}
 $.validator.methods.email = function (value, element) {
-    return this.optional(element) || /[a-z]+@[a-z]+\.[a-z]+/.test(value);
+    return this.optional(element) || /^([\w-.]+@([\w-]+\.)+[\w-]{1,4})?$/.test(value);
+}
+
+$.validator.methods.phone = function (value, element) {
+    return this.optional(element) || /^\d{10}$/.test(value);
 }
 
 $("#login_form").validate({
@@ -120,30 +127,31 @@ $(".section_2_btn").on('click', function () {
 });
 
 //modal registration
+let flatpickrConfig
 let flatpickrInstance
 const swalConfig = {
     title: 'Registration',
     html:
         `<form id="register_form">
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-1">
                   <label">Username</label>
-                  <input type="text" id="login" class="form-control" placeholder="Username">
+                  <input type="text" id="login" name="login" class="form-control" placeholder="Username">
                 </div>
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-1">
                   <label>Email</label>
                   <input type="email" id="email" name="email" class="form-control" placeholder="Enter email address">
                 </div>
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-1">
                   <label>Phone</label>
-                  <input class="form-control" id="phone" maxlength="10" placeholder="Enter phone number" >
+                  <input class="form-control" id="phone" name="phone" maxlength="10" placeholder="Enter phone number" >
                 </div>
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-1">
                   <label>Date of birth</label>
-                  <input id="expiry-date" class="form-control flatpickr-input" data-max-date=today placeholder="Enter date of birth">
+                  <input id="expiry-date" name="date" class="form-control flatpickr-input"  data-max-date=today placeholder="Select date of birth">
                 </div>
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-2">
                   <label>Country</label>
-                  <select class="custom-select" id="country">
+                  <select class="custom-select" id="country" name="country">
                   <option selected disabled value="">Select a country</option>
                   </select>
                 </div>
@@ -151,6 +159,7 @@ const swalConfig = {
             </form>
             `,
     showConfirmButton: false,
+    focusConfirm: false,
     didRender(popup) {
         $.getJSON("https://trial.mobiscroll.com/content/countries.json", function (data) {
             data.forEach(({value, text}) => {
@@ -159,6 +168,9 @@ const swalConfig = {
         });
     },
     willOpen: () => {
+        flatpickrConfig = {
+            allowInput: true,
+        };
         flatpickrInstance = flatpickr(
             Swal.getPopup().querySelector('#expiry-date')
         )
@@ -174,134 +186,55 @@ const swalConfig = {
 $(".sign_up").on('click', function () {
     Swal.fire(swalConfig);
 });
-
-$('.sign_up_register').on('click', function() {
-    Swal.fire(
-        {
-            icon: 'success',
-            title: 'Thank you for registering',
-            showConfirmButton: false,
-            timer: 2000,
-            showClass: {
-                popup: 'animate__animated animate__fadeInDown'
+$('body').on('click', '.sign_up_register', function () {
+    $("#register_form").validate({
+        rules: {
+            login: {
+                required: true,
+                login: true,
+                minlength: 5,
+                maxlength: 20
             },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-            }
-        })
+            email: {
+                required: true,
+                email: true,
+            },
+            phone: {
+                required: true,
+                phone: true,
+            },
+            date: {
+                required: true,
+            },
+            country: {
+                required: true,
+            },
+        },
+        messages: {
+            login: {
+                login: "Username only letters of the Latin"
+            },
+            email: {
+                email: "Your email must be in the format of name@domain.com"
+            },
+            phone: {
+                phone: "The phone should be in the format: 0xxxxxxxxx"
+            },
+        },
+        submitHandler: function () {
+            Swal.fire(
+                {
+                    icon: 'success',
+                    title: 'Thank you for registering',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+        }
+    });
 });
-
-// $('.swal2-confirm').on('click', function () {
-//     simulateAjaxRequest();
-// });
-
-// function simulateAjaxRequest() {
-//     $("#register_form").validate({
-//         rules: {
-//             email: {
-//                 required: true,
-//                 email: true,
-//             },
-//         },
-//         messages: {
-//             email: {
-//                 email: "Your email must be in the format of name@domain.com"
-//             },
-//         },
-//     });
-// }
-
-// $(".sign_up").on('click', function () {
-//     let flatpickrInstance
-//     Swal.fire({
-//         title: 'Registration',
-//         html:
-//             `<form id="register_form">
-//                 <div class="col-md-12 mb-3">
-//                   <label">Username</label>
-//                   <input type="text" id="login" class="form-control" placeholder="Username">
-//                 </div>
-//                 <div class="col-md-12 mb-3">
-//                   <label>Email</label>
-//                   <input type="email" id="email" class="form-control" placeholder="Enter email address">
-//                 </div>
-//                 <div class="col-md-12 mb-3">
-//                   <label>Phone</label>
-//                   <input class="form-control" id="phone" maxlength="10" placeholder="Enter phone number" >
-//                 </div>
-//                 <div class="col-md-12 mb-3">
-//                   <label>Date of birth</label>
-//                   <input id="expiry-date" class="form-control flatpickr-input" data-max-date=today placeholder="Enter date of birth">
-//                 </div>
-//                 <div class="col-md-12 mb-3">
-//                   <label>Country</label>
-//                   <select class="custom-select" id="country">
-//                   <option selected disabled value="">Select a country</option>
-//                   </select>
-//                 </div>
-//             </form>
-//             `,
-//         confirmButtonText: 'Sign in',
-//         confirmButtonClass: 'button',
-//         buttonsStyling: false,
-//         focusConfirm: false,
-//         didRender(popup) {
-//             $.getJSON("https://trial.mobiscroll.com/content/countries.json", function (data) {
-//                 data.forEach(({value, text}) => {
-//                     $(popup).find('select#country').append($(`<option value="${value}">${text}</option>`))
-//                 })
-//             });
-//         },
-//         preConfirm: () => {
-//             // const login = Swal.getPopup().querySelector('#login').value
-//             // const email = Swal.getPopup().querySelector('#email').value
-//             // const phone = Swal.getPopup().querySelector('#phone').value
-//             // const birthday = Swal.getPopup().querySelector('#expiry-date').value
-//             // const country = Swal.getPopup().querySelector('#country').value
-//             // // const loginReg = /[^a-zA-Z\s]/;
-//             // // const emailReg = /^([\w-.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-//             // // const phoneReg = /^\d{10}$/;
-//             // if (!login || !email || !phone || !country || !birthday) {
-//             //     Swal.showValidationMessage(`Please fill in all fields`)
-//             // }
-//             // // else if (loginReg.test(login)) {
-//             // //     Swal.showValidationMessage(`Username only letters of the Latin`)
-//             // // } else if (!emailReg.test(email)) {
-//             // //     Swal.showValidationMessage(`The email should be in the format: email@domain.com`)
-//             // // } else if (!phoneReg.test(phone)) {
-//             // //     Swal.showValidationMessage(`The phone should be in the format: 0xxxxxxxxx`)
-//             // // } else if (flatpickrInstance.selectedDates[0] > new Date()) {
-//             // //     Swal.showValidationMessage(`Date of birth cannot be in the future`)
-//             // // }
-//             // return {login: login, email: email, phone: phone, birthday: birthday, country: country}
-//         },
-//         willOpen: () => {
-//             flatpickrInstance = flatpickr(
-//                 Swal.getPopup().querySelector('#expiry-date')
-//             )
-//         },
-//         showClass: {
-//             popup: 'animate__animated animate__fadeInDown'
-//         },
-//         hideClass: {
-//             popup: 'animate__animated animate__fadeOutUp'
-//         },
-//     }).then((result) => {
-//         if (result.isConfirmed) {
-//             Swal.fire(
-//                 {
-//                     icon: 'success',
-//                     title: 'Thank you for registering',
-//                     showConfirmButton: false,
-//                     timer: 2000,
-//                     showClass: {
-//                         popup: 'animate__animated animate__fadeInDown'
-//                     },
-//                     hideClass: {
-//                         popup: 'animate__animated animate__fadeOutUp'
-//                     }
-//                 })
-//         }
-//     })
-// });
-
