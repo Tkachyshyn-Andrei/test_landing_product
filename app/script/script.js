@@ -131,7 +131,7 @@ const swalConfig = {
                 </div>
                 <div class="col-md-12 mb-3">
                   <label>Email</label>
-                  <input type="email" id="email" class="form-control" placeholder="Enter email address">
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Enter email address">
                 </div>
                 <div class="col-md-12 mb-3">
                   <label>Phone</label>
@@ -147,12 +147,10 @@ const swalConfig = {
                   <option selected disabled value="">Select a country</option>
                   </select>
                 </div>
+                <button class="button sign_up_register">Sign in</button>
             </form>
             `,
-    confirmButtonText: 'Sign in',
-    confirmButtonClass: 'button',
-    buttonsStyling: false,
-    focusConfirm: false,
+    showConfirmButton: false,
     didRender(popup) {
         $.getJSON("https://trial.mobiscroll.com/content/countries.json", function (data) {
             data.forEach(({value, text}) => {
@@ -177,29 +175,41 @@ $(".sign_up").on('click', function () {
     Swal.fire(swalConfig);
 });
 
-$('#register_form').on('click', '.swal2-confirm', function() {
-    simulateAjaxRequest();
+$('.sign_up_register').on('click', function() {
+    Swal.fire(
+        {
+            icon: 'success',
+            title: 'Thank you for registering',
+            showConfirmButton: false,
+            timer: 2000,
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        })
 });
 
 // $('.swal2-confirm').on('click', function () {
 //     simulateAjaxRequest();
 // });
 
-function simulateAjaxRequest() {
-    $("#register_form").validate({
-        rules: {
-            email: {
-                required: true,
-                email: true,
-            },
-        },
-        messages: {
-            email: {
-                email: "Your email must be in the format of name@domain.com"
-            },
-        },
-    });
-}
+// function simulateAjaxRequest() {
+//     $("#register_form").validate({
+//         rules: {
+//             email: {
+//                 required: true,
+//                 email: true,
+//             },
+//         },
+//         messages: {
+//             email: {
+//                 email: "Your email must be in the format of name@domain.com"
+//             },
+//         },
+//     });
+// }
 
 // $(".sign_up").on('click', function () {
 //     let flatpickrInstance
