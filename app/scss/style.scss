@@ -1103,6 +1103,7 @@ button.swal2-styled.swal2-confirm {
 .flatpickr-input{
   background-color: #fff !important;
 }
+
 /*----------------------------login.html-------------------------------------*/
 .login_form {
   max-width: 228px;
@@ -1115,6 +1116,19 @@ button.swal2-styled.swal2-confirm {
 }
 
 .login_form button {
+  display: block;
+  margin: 0 auto;
+}
+
+/*----------------------------registration modal-------------------------------------*/
+.swal2-html-container {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px !important;
+  line-height: 28px !important;
+  color: #22343D !important;
+  text-align: left !important;
+}
+#register_form button {
   display: block;
   margin: 0 auto;
 }

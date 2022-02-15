@@ -133,24 +133,24 @@ const swalConfig = {
     title: 'Registration',
     html:
         `<form id="register_form">
-                <div class="col-md-12 mb-1">
-                  <label">Username</label>
+                <div class="col-md-12 mb-2">
+                  <label for="login" ">Username</label>
                   <input type="text" id="login" name="login" class="form-control" placeholder="Username">
                 </div>
-                <div class="col-md-12 mb-1">
-                  <label>Email</label>
+                <div class="col-md-12 mb-2">
+                  <label for="email">Email</label>
                   <input type="email" id="email" name="email" class="form-control" placeholder="Enter email address">
                 </div>
-                <div class="col-md-12 mb-1">
-                  <label>Phone</label>
+                <div class="col-md-12 mb-2">
+                  <label for="phone">Phone</label>
                   <input class="form-control" id="phone" name="phone" maxlength="10" placeholder="Enter phone number" >
                 </div>
-                <div class="col-md-12 mb-1">
-                  <label>Date of birth</label>
+                <div class="col-md-12 mb-2">
+                  <label for="expiry-date">Date of birth</label>
                   <input id="expiry-date" name="date" class="form-control flatpickr-input"  data-max-date=today placeholder="Select date of birth">
                 </div>
                 <div class="col-md-12 mb-2">
-                  <label>Country</label>
+                  <label for="country">Country</label>
                   <select class="custom-select" id="country" name="country">
                   <option selected disabled value="">Select a country</option>
                   </select>
