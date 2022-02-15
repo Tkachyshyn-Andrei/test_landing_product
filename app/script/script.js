@@ -155,7 +155,7 @@ const swalConfig = {
                   <option selected disabled value="">Select a country</option>
                   </select>
                 </div>
-                <button class="button sign_up_register">Sign in</button>
+                <button class="button sign_up_register mt-3">Sign in</button>
             </form>
             `,
     showConfirmButton: false,

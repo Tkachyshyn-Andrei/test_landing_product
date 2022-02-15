@@ -1113,11 +1113,16 @@ button.swal2-styled.swal2-confirm {
 
 .login_form h2 {
   text-align: center;
+  margin-bottom: 2.5rem !important;
 }
 
 .login_form button {
   display: block;
   margin: 0 auto;
+}
+
+.section_login {
+  margin-top: -85px;
 }
 
 /*----------------------------registration modal-------------------------------------*/
